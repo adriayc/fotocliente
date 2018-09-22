@@ -15,7 +15,7 @@ class FotoCliente extends Module {
         $this->tab = "front_office_features";   //Categoria de modulos donde pertenecera
         $this->author = "Adriano Ayala";    //Autor del modulo
         $this->version = "1.0"; //Version del modulo
-        $this->bootstap = true; //Habilitar bootstrap en el modulo
+        $this->bootstrap = true; //Habilitar bootstrap en el modulo
 
         //Compatibilidad para las versiones
         $this->ps_versions_compliancy = array(
