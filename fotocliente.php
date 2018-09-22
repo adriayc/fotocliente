@@ -12,10 +12,17 @@ class FotoCliente extends Module {
         $this->name = "fotocliente";    //Nombre interno del modulo
         $this->displayName = "Fotos de los clientes";   //Nombre del modulo
         $this->description = "Modulo que sirve para que los clientes puedan añadir sus propias fotos en los productos"; //Descripcion del modulo
-        $this->tab = "front_office_features";   //Seccion donde se mostrara el modulo
+        $this->tab = "front_office_features";   //Categoria de modulos donde pertenecera
         $this->author = "Adriano Ayala";    //Autor del modulo
         $this->version = "1.0"; //Version del modulo
         $this->bootstap = true; //Habilitar bootstrap en el modulo
+
+        //Compatibilidad para las versiones
+        $this->ps_versions_compliancy = array(
+            'min' => '1.6',
+            'max' => _PS_VERSION_
+        );
+        $this->dependencies = array();  //Dependencia de los modulos
 
         parent::__construct();
     }
