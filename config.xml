@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>fotocliente</name>
+	<displayName><![CDATA[Fotos de los clientes]]></displayName>
+	<version><![CDATA[1.0]]></version>
+	<description><![CDATA[Modulo que sirve para que los clientes puedan a&ntilde;adir sus propias fotos en los productos]]></description>
+	<author><![CDATA[Adriano Ayala]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>0</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
