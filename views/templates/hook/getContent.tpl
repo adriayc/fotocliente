@@ -1,0 +1,1 @@
+<h3>Esta es la configuracion del modulo</h3>

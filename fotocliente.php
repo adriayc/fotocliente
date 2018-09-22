@@ -19,4 +19,10 @@ class FotoCliente extends Module {
 
         parent::__construct();
     }
+
+    //Funcion de configuracion
+    public function getContent() {
+//        return "Esta es la configuracion del modulo";
+        return $this->display(__FILE__, "getContent.tpl");  //Leer un archivo tpl del hook
+    }
 }
