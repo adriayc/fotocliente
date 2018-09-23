@@ -1,4 +1,3 @@
-{*<h3>Esta es la configuracion del modulo</h3>*}
 
 <fieldset>
     <h2>Configuracion del modulo de Fotos de Clientes</h2>

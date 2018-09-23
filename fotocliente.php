@@ -29,7 +29,12 @@ class FotoCliente extends Module {
 
     //Funcion de configuracion
     public function getContent() {
-//        return "Esta es la configuracion del modulo";
+        //Verificar si recibe un formulario
+        if(Tools::isSubmit("fotoclient_form")) {
+            $enable_comment = Tools::getValue("enable_comment");    //Obtener el valor del radio
+            Configuration::updateValue("FOTOCLI_COMMENTS", $enable_comment);    //Guardar el valor
+        }
+
         return $this->display(__FILE__, "getContent.tpl");  //Leer un archivo tpl del hook
     }
 
