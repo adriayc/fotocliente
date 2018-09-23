@@ -6,6 +6,9 @@
  * Time: 9:35 AM
  */
 
+//Agregamos la clase FotoclienteObj.php
+require_once(dirname(__FILE__).'/classes/FotoclienteObj.php');
+
 class FotoCliente extends Module {
 
     public function __construct() {
@@ -95,14 +98,29 @@ class FotoCliente extends Module {
                 if($foto["name"] != "") {
                     $allowed = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
                     if(in_array($foto["type"], $allowed)) {
-                        $path = './upload';
+                        $path = './upload/';
                         list($width, $height) = getimagesize($foto['tmp_name']);
                         $propo = 400/$width;
                         $copy = ImageManager::resize($foto["tmp_name"], $path.$foto['name'], 400, $propo*$height, $foto["type"]);
                         if(!$copy) {
                             $this->context->smarty->assign("errorForm", "Error mobiendo la imagen: ".$path.$foto["name"]);
                         } else {
+                            $id_product = Tools::getValue("id_product");
+                            $pathfoto = "upload/".$foto['name'];
+                            $comentario = Tools::getValue("comment");
 
+                            //Creamos una nueva instancio de la clase FotoclienteObj
+                            $fotoObj = new FotoclienteObj();
+                            $fotoObj->id_product = (int)$id_product;
+                            $fotoObj->foto = $pathfoto;
+                            $fotoObj->comment = pSQL($comentario);
+                            $result = $fotoObj->add();  //El metodo add() hace el objecto creado sea guardado en la DB
+
+                            if($result) {
+                                $this->context->smarty->assign("saveForm", "1");
+                            } else {
+                                $this->context->smarty->assign("errorForm", "No se a podido grabar la foto en la BD");
+                            }
                         }
                     } else {
                         $this->context->smarty->assign("errorForm", "Formato de imagen no valido");

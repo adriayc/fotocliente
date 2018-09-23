@@ -1,4 +1,7 @@
 <h3 class="page-product-heading">Fotos de clientes</h3>
+{if isset($saveForm)}
+    <div class="alert alert-success">Imagen añadida</div>
+{/if}
 {if isset($errorForm)}
     <div class="alert alert-danger">{$errorForm}</div>
 {/if}
