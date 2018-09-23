@@ -73,7 +73,18 @@ class FotoCliente extends Module {
         if(!parent::uninstall())
             return false;
 
-        return true;
+        Configuration::deleteByName("FOTOCLI_COMMENTS");    //Eliminar el valor de configuracion guardada
+
+        $result = $this->uninstallDB();
+        return $result;
+//        return true;
+    }
+
+    //Funcion que elimina la tabla
+    public function uninstallDB() {
+        return Db::getInstance()->execute(
+            "DROP TABLE `"._DB_PREFIX_."fotocliente_item`;"
+        );
     }
 
     //Muestra contenido en el hook
