@@ -62,6 +62,7 @@ class FotoCliente extends Module {
 
     //Muestra contenido en el hook
     public function hookDisplayProductTabContent($params) {
-        return "Contenido de mi modulo";
+//        return "Contenido de mi modulo";
+        return $this->display(__FILE__, "displayProductTabContent.tpl");
     }
 }
