@@ -89,6 +89,28 @@ class FotoCliente extends Module {
 
     //Muestra contenido en el hook
     public function hookDisplayProductTabContent($params) {
+        if(Tools::isSubmit("fotocliente_submit_foto")) {
+            if(isset($_FILES["foto"])) {
+                $foto = $_FILES["foto"];
+                if($foto["name"] != "") {
+                    $allowed = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
+                    if(in_array($foto["type"], $allowed)) {
+                        $path = './upload';
+                        list($width, $height) = getimagesize($foto['tmp_name']);
+                        $propo = 400/$width;
+                        $copy = ImageManager::resize($foto["tmp_name"], $path.$foto['name'], 400, $propo*$height, $foto["type"]);
+                        if(!$copy) {
+                            $this->context->smarty->assign("errorForm", "Error mobiendo la imagen: ".$path.$foto["name"]);
+                        } else {
+
+                        }
+                    } else {
+                        $this->context->smarty->assign("errorForm", "Formato de imagen no valido");
+                    }
+                }
+            }
+        }
+
         $aneble_comment = COnfiguration::get("FOTOCLI_COMMENTS");
         $this->context->smarty->assign("enable_comment", $aneble_comment);
 

@@ -1,4 +1,7 @@
 <h3 class="page-product-heading">Fotos de clientes</h3>
+{if isset($errorForm)}
+    <div class="alert alert-danger">{$errorForm}</div>
+{/if}
 <div class="fotocliente_bloque">
     <form action="" enctype="multipart/form-data" method="post" id="comment_form">
         <div class="form-group col-xs-12 col-md-4">
