@@ -5,7 +5,7 @@
             <label for="foto">Foto:</label>
             <input type="file" name="foto" id="foto">
         </div>
-        <div class="form-group col-xs-12 col-md-8">
+        <div class="form-group col-xs-12 col-md-8" style="{if $enable_comment == '0'}display: none;{/if}">
             <label for="comment">Comentario:</label>
             <textarea name="comment" id="comment" class="formcontrol"></textarea>
         </div>

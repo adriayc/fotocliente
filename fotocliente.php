@@ -89,7 +89,9 @@ class FotoCliente extends Module {
 
     //Muestra contenido en el hook
     public function hookDisplayProductTabContent($params) {
-//        return "Contenido de mi modulo";
+        $aneble_comment = COnfiguration::get("FOTOCLI_COMMENTS");
+        $this->context->smarty->assign("enable_comment", $aneble_comment);
+
         return $this->display(__FILE__, "displayProductTabContent.tpl");
     }
 }
