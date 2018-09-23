@@ -129,8 +129,12 @@ class FotoCliente extends Module {
             }
         }
 
-        $aneble_comment = COnfiguration::get("FOTOCLI_COMMENTS");
-        $this->context->smarty->assign("enable_comment", $aneble_comment);
+        //Obtnemos todas las fotos del id_product de la pagina
+        $fotos = FotoclienteObj::getProductFotos(Tools::getValue("id_product"));
+        $this->context->smarty->assign('fotos', $fotos);
+
+        $enable_comment = Configuration::get("FOTOCLI_COMMENTS");
+        $this->context->smarty->assign("enable_comment", $enable_comment);
 
         return $this->display(__FILE__, "displayProductTabContent.tpl");
     }

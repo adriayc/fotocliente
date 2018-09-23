@@ -26,4 +26,14 @@ class FotoclienteObj extends ObjectModel {
         ),
     );
 
+    //Funcion que devuelve todas las fotos
+    public static function getProductFotos($id_product) {
+        $fotos = Db::getInstance()->executeS('
+            SELECT *
+            FROM `'._DB_PREFIX_.'fotocliente_item`
+            WHERE `id_product` = '.(int)$id_product.'
+            ORDER BY `id_fotocliente_item` DESC');
+
+        return $fotos;
+    }
 }

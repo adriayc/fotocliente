@@ -5,6 +5,16 @@
 {if isset($errorForm)}
     <div class="alert alert-danger">{$errorForm}</div>
 {/if}
+
+{foreach from=$fotos item=foto}
+    <div class="fotocliente_bloque">
+        {*$base_dir - Base url de PS*}
+        <img src="{$base_dir}{$foto.foto}" alt="" class="fotocliente_img col-xs-12 col-md-6">
+        {if $enable_comment == '1'}
+            <div class="fotocliente_comment col-xs-12 col-md-6">{$foto.comment}</div>
+        {/if}
+    </div>
+{/foreach}
 <div class="fotocliente_bloque">
     <form action="" enctype="multipart/form-data" method="post" id="comment_form">
         <div class="form-group col-xs-12 col-md-4">
