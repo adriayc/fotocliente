@@ -35,6 +35,9 @@ class FotoCliente extends Module {
             Configuration::updateValue("FOTOCLI_COMMENTS", $enable_comment);    //Guardar el valor
         }
 
+        $enable_comment = Configuration::get("FOTOCLI_COMMENTS");   //Recuperamos el valor guardado de Configuration
+        $this->context->smarty->assign("enable_comment", $enable_comment);  //Pasar un valor al formulario de getContent
+
         return $this->display(__FILE__, "getContent.tpl");  //Leer un archivo tpl del hook
     }
 

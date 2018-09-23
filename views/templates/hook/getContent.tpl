@@ -10,11 +10,13 @@
                 <label for="" class="col-lg-3">Añadir comentario:</label>
                 <div class="col-lg-9">
                     <img src="../img/admin/enabled.gif" alt="">
-                    <input type="radio" name="enable_comment" id="enable_comment_1" value="1">
+                    <input type="radio" name="enable_comment" id="enable_comment_1" value="1"
+                    {if $enable_comment == 1}checked{/if}>
                     <label for="enable_comment_1" class="t">Si</label>
 
                     <img src="../img/admin/disabled.gif" alt="">
-                    <input type="radio" name="enable_comment" id="enable_comment_0" value="0">
+                    <input type="radio" name="enable_comment" id="enable_comment_0" value="0"
+                    {if $enable_comment == 0}checked{/if}>
                     <label for="enable_comment_0" class="t">No</label>
                 </div>
             </div>
