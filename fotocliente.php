@@ -47,6 +47,8 @@ class FotoCliente extends Module {
         if(!parent::install())
             return false;
 
+        $this->registerHook("displayProductTabContent");    //Registrar el modulo en el hook
+
         return true;
     }
 
@@ -56,5 +58,10 @@ class FotoCliente extends Module {
             return false;
 
         return true;
+    }
+
+    //Muestra contenido en el hook
+    public function hookDisplayProductTabContent($params) {
+        return "Contenido de mi modulo";
     }
 }
