@@ -43,13 +43,29 @@ class FotoCliente extends Module {
 
     //Funcion de instalacion
     public function install() {
-//        parent::install();
         if(!parent::install())
             return false;
 
+        Configuration::updateValue("FOTOCLI_COMMENTS", "1");    //Guardamos el valor configuracion por defecto
         $this->registerHook("displayProductTabContent");    //Registrar el modulo en el hook
 
-        return true;
+        //Almacenamos la funcion en la variable
+        $result = $this->installDB();
+        return $result;
+//        return true;
+    }
+
+    //Funcion que crea una tabla en la DB
+    public function installDB() {
+        return Db::getInstance()->execute(
+            "CREATE TABLE IF NOT EXISTS `"._DB_PREFIX_."fotocliente_item` (
+                    `id_fotocliente_item` int(11) NOT NULL AUTO_INCREMENT,
+                    `id_product` int(11) NOT NULL,
+                    `foto` VARCHAR(255) NOT NULL,
+                    `comment` text NOT NULL,
+                    PRIMARY KEY (`id_fotocliente_item`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;"
+        );
     }
 
     //Funcion de desinstalacion
