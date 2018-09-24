@@ -13,7 +13,19 @@
 
 class FotoclienteFotosModuleFrontController extends ModuleFrontController {
 
+    public function init() {
+        //Ocultar la columna izquierda y derecha de la pagina
+        $this->display_column_left = false;
+        $this->display_column_right = false;
+        parent::init();
+    }
+
     protected function initListaFotos() {
+        $fotos = FotoclienteObj::getAll();
+        $this->context->smarty->assign('fotos', $fotos);
+        $enable_comment = Configuration::get('FOTOCLI_COMMENTS');
+        $this->context->smarty->assign('enable_comment', $enable_comment);
+
         $this->setTemplate("listaFotos.tpl");
     }
 
