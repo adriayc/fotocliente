@@ -15,6 +15,12 @@
         {/if}
     </div>
 {/foreach}
+
+{assign var=params value=['module_action' => 'listafotos']}
+<a href="{$link->getModuleLink('fotocliente', 'fotos', $params)}">
+    <span>Ver todas las fotos</span>
+</a>
+
 <div class="fotocliente_bloque">
     <form action="" enctype="multipart/form-data" method="post" id="comment_form">
         <div class="form-group col-xs-12 col-md-4">
