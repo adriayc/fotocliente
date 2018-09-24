@@ -1,6 +1,6 @@
-<h3 class="page-product-heading">Fotos de clientes</h3>
+<h3 class="page-product-heading">{l s="Fotos de clientes" mod="fotocliente"}</h3>
 {if isset($saveForm)}
-    <div class="alert alert-success">Imagen añadida</div>
+    <div class="alert alert-success">{l s="Imagen añadida" mod="fotocliente"}</div>
 {/if}
 {if isset($errorForm)}
     <div class="alert alert-danger">{$errorForm}</div>
@@ -18,11 +18,11 @@
 <div class="fotocliente_bloque">
     <form action="" enctype="multipart/form-data" method="post" id="comment_form">
         <div class="form-group col-xs-12 col-md-4">
-            <label for="foto">Foto:</label>
+            <label for="foto">{l s="Foto" mod="fotocliente"}:</label>
             <input type="file" name="foto" id="foto">
         </div>
         <div class="form-group col-xs-12 col-md-8" style="{if $enable_comment == '0'}display: none;{/if}">
-            <label for="comment">Comentario:</label>
+            <label for="comment">{l s="Comentario" mod="fotocliente"}:</label>
             <textarea name="comment" id="comment" class="formcontrol"></textarea>
         </div>
         <div class="submit fotocliente_bloque">

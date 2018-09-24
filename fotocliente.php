@@ -13,8 +13,8 @@ class FotoCliente extends Module {
 
     public function __construct() {
         $this->name = "fotocliente";    //Nombre interno del modulo
-        $this->displayName = "Fotos de los clientes";   //Nombre del modulo
-        $this->description = "Modulo que sirve para que los clientes puedan añadir sus propias fotos en los productos"; //Descripcion del modulo
+        $this->displayName = $this->l("Fotos de los clientes");   //Nombre del modulo
+        $this->description = $this->l("Modulo que sirve para que los clientes puedan añadir sus propias fotos en los productos"); //Descripcion del modulo
         $this->tab = "front_office_features";   //Categoria de modulos donde pertenecera
         $this->author = "Adriano Ayala";    //Autor del modulo
         $this->version = "1.0"; //Version del modulo
@@ -103,7 +103,7 @@ class FotoCliente extends Module {
                         $propo = 400/$width;
                         $copy = ImageManager::resize($foto["tmp_name"], $path.$foto['name'], 400, $propo*$height, $foto["type"]);
                         if(!$copy) {
-                            $this->context->smarty->assign("errorForm", "Error mobiendo la imagen: ".$path.$foto["name"]);
+                            $this->context->smarty->assign("errorForm", $this->l("Error moviendo la imagen: ").$path.$foto["name"]);
                         } else {
                             $id_product = Tools::getValue("id_product");
                             $pathfoto = "upload/".$foto['name'];
@@ -119,11 +119,11 @@ class FotoCliente extends Module {
                             if($result) {
                                 $this->context->smarty->assign("saveForm", "1");
                             } else {
-                                $this->context->smarty->assign("errorForm", "No se a podido grabar la foto en la BD");
+                                $this->context->smarty->assign("errorForm", $this->l("No se a podido grabar la foto en la BD"));
                             }
                         }
                     } else {
-                        $this->context->smarty->assign("errorForm", "Formato de imagen no valido");
+                        $this->context->smarty->assign("errorForm", $this->l("Formato de imagen no valido"));
                     }
                 }
             }
