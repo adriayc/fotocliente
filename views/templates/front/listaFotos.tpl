@@ -4,6 +4,6 @@
         {if $enable_comment == '1'}
             <div class="fotocliente_comment col-xs-12">{$foto.comment}</div>
         {/if}
-        <img src="{$base_dir}{$foto.foto}" class="fotocliente_comment col-xs-12" alt="">
+        <img src="{$base_dir}{$foto.foto}" class="fotocliente_img col-xs-12" alt="">
     </div>
 {/foreach}

@@ -20,6 +20,15 @@ class FotoclienteFotosModuleFrontController extends ModuleFrontController {
         parent::init();
     }
 
+    //Funcion para anaidir CSS y JS al controlador
+    public function setMedia() {
+        parent::setMedia();
+
+        $this->path = __PS_BASE_URI__.'modules/fotocliente/';   //Obtenemos la url del nuestro modulo
+        $this->context->controller->addCSS($this->path.'views/css/fotocliente.css', 'all');
+        $this->context->controller->addJS($this->path.'views/js/fotocliente.js');
+    }
+
     protected function initListaFotos() {
         $fotos = FotoclienteObj::getAll();
         $this->context->smarty->assign('fotos', $fotos);
