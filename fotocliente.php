@@ -136,6 +136,10 @@ class FotoCliente extends Module {
         $enable_comment = Configuration::get("FOTOCLI_COMMENTS");
         $this->context->smarty->assign("enable_comment", $enable_comment);
 
+        //Agregamos css y js al hook
+        $this->context->controller->addCSS($this->_path."views/css/fotocliente.css");
+        $this->context->controller->addJS($this->_path."views/js/fotocliente.js");
+
         return $this->display(__FILE__, "displayProductTabContent.tpl");
     }
 }
