@@ -142,4 +142,18 @@ class FotoCliente extends Module {
 
         return $this->display(__FILE__, "displayProductTabContent.tpl");
     }
+
+    public function onClickOption($type, $href = false) {
+        //return "return confirm('Estas seguro ?');";
+
+        $matchType = array(
+            'reset' => "return confirm('Seguro que quiere resetear el modulo?');",
+            'delete' => "return confirm('Confirma que desea borrar el modulo?');",
+        );
+
+        if(isset($matchType[$type]))
+            return $matchType[$type];
+
+        return '';
+    }
 }
